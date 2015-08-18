@@ -1,0 +1,31 @@
+{
+  "name": "TSL",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalbshack/TSL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kalbshack/TSL/issues"
+  },
+  "homepage": "https://github.com/Kalbshack/TSL#readme",
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "coffee-script": "^1.9.3",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-develop-server": "^0.4.3",
+    "gulp-merge": "^0.1.1",
+    "gulp-stylus": "^2.0.6",
+    "jade": "^1.11.0"
+  }
+}
