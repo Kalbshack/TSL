@@ -31,3 +31,6 @@ bower_components/
 
 # Compiled Arduino
 **/build-*
+
+# Arduino makefile
+mcu/makefile
