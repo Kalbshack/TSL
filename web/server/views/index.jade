@@ -2,12 +2,18 @@
 doctype html
 html
     head
+        script(src="https://cdn.socket.io/socket.io-1.2.0.js")
         script(src="/static/build/client.js")
         link(rel="stylesheet", href="/static/build/vendor.css")
         link(rel="stylesheet", href="/static/build/main.css")
-        title quote-list
+        title Tilt Sensor Logger
     
     body(ng-app="tslmodule", ng-controller="tslcontroller")
         h1 TSL
+        h2 Num: {{ num }}
+
+        div(style="width: {{ num }}px;height:25px; background-color=red") {{ num }}
+        div(width="200", height="25", style='background-color:#cccccc') Hallo
+        button(ng-click="sendRes()") Send
 
 
