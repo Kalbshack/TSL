@@ -15,7 +15,7 @@ tslmodule.controller "tslcontroller", ["$scope", "socket", ($scope, socket) ->
 
 
 tslmodule.factory 'socket', ['$rootScope', ($rootScope) ->
-    socket = io.connect 'http://localhost:3000'
+    socket = io.connect '192.168.2.100:3000'
     #socket = io.connect
     console.log "socket created"
  

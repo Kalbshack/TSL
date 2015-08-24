@@ -7,8 +7,6 @@ if fs.existsSync 'test.sock'
     console.log 'deleting socket'
     fs.unlinkSync 'test.sock'
 
-myclient = ""
-
 sockServer = net.createServer (socket) ->
     console.log "Started Socket"
     socket.write 'Hello World \r\n'
@@ -21,7 +19,6 @@ sockServer = net.createServer (socket) ->
 
     socket.on 'data', (data) ->
         execute data[0]
-        #console.log data[0]
 
 sockServer.listen './test.sock'
 
@@ -40,17 +37,17 @@ app.get "/", (req, res) ->
 server = app.listen 3000, () ->
     console.log "Läuft"
 
-socket = io.listen server
+sockServer = io.listen server
 
 
-socket.on 'connection', (client) ->
+sockServer.on 'connection', (client) ->
     myclient = client
     console.log 'new io client connected'
 
     client.on 'res', () ->
         console.log 'res from client'
-        io.sockets.emit 'exe', 150
+        sockServer.emit 'exe', 150
 
 
 execute = (data) ->
-    myclient.emit "exe", data
+    sockServer.emit "exe", data

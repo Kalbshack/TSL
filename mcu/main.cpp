@@ -42,6 +42,27 @@ void dmpDataReady() {
     mpuInterrupt = true;
 }
 
+float rad(float degree)
+{
+  /*
+   * Wandelt Wert von Grad zu Radiant
+   */
+  return (degree * PI/180);
+}
+
+float deg(float radian)
+{
+  /*
+   * Wandelt Wert von Radiant zu Grad
+   */
+  return (radian * 180/PI);
+}
+
+typedef union {
+    float floatNum;
+    byte floatBytes[4];
+} byteFloat;
+
 unsigned int last_loop = 0;
 unsigned int last_print_loop = 0;
 
@@ -67,10 +88,25 @@ void setup()
 
 void loop()
 {
-    Serial.write(random(0,255));
-    delay(50);
-    //getYPR();
+    //Serial.write(random(0,255));
+    //delay(50);
+    getYPR();
 
+    byteFloat angle;
+
+    Serial.write('#');
+    angle.floatNum = deg(ypr[0]);
+    Serial.write(angle.floatBytes, 4);
+    angle.floatNum = deg(ypr[1]);
+    Serial.write(angle.floatBytes, 4);
+    angle.floatNum = deg(ypr[2]);
+    Serial.write(angle.floatBytes, 4);
+    /*
+    Serial.write(angle.floatBytes, 4);
+    for (char i = 3; i >= 0; i++){
+        Serial.write(angle.floatBytes[i]);
+    }
+    */
 }
 
 void getYPR()
